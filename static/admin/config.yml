@@ -3,7 +3,7 @@ backend:
   branch: master
 
 # when using the default proxy server port
-# local_backend: true
+local_backend: true
 
 publish_mode: editorial_workflow
 media_folder: static/img
@@ -69,7 +69,7 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Cover", name: "cover", widget: "image"}
+      - {label: "Cover", name: "cover", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
       - {label: "Meta Title", name: "meta_title", widget: "string"}
