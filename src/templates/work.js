@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'gatsby'
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import config from '../../config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
@@ -8,7 +8,7 @@ import Layout from '../components/Layout'
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={`/blog/${props.url}`} className='button is-rounded'>
+      <Link to={`/work/${props.url}`} className='button is-rounded'>
         {props.text}
       </Link>
     )
@@ -21,10 +21,10 @@ const PaginationLink = props => {
   }
 }
 
-export default class BlogPage extends Component {
+export default class WorkLandingPage extends Component {
   render () {
-    const {pageContext} = this.props
-    const {group, index, first, last} = pageContext
+    const { pageContext } = this.props
+    const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
@@ -39,7 +39,7 @@ export default class BlogPage extends Component {
     return (
       <Layout>
         <Helmet>
-          <title>Blog | Gatsby Starter Business</title>
+          <title>Work | Gatsby Starter Business</title>
           {/* Schema.org tags */}
           <script type='application/ld+json'>
             {JSON.stringify(websiteSchemaOrgJSONLD)}
@@ -52,7 +52,7 @@ export default class BlogPage extends Component {
                 <div className='column is-10 is-offset-1'>
                   <div className='section'>
                     <h1 className='title'>
-                      Blog
+                      Work
                     </h1>
                   </div>
                 </div>

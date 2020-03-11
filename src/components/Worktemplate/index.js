@@ -3,7 +3,7 @@ import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
 
-const ArticleTemplate = ({
+const WorkTemplate = ({
   content,
   contentComponent,
   cover,
@@ -29,8 +29,7 @@ const ArticleTemplate = ({
                 <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               </li>
             ))
-            : null
-          }
+            : null}
         </ul>
       </div>
       <hr />
@@ -38,4 +37,4 @@ const ArticleTemplate = ({
   )
 }
 
-export default ArticleTemplate
+export default WorkTemplate

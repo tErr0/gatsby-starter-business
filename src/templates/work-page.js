@@ -1,15 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
-import {HTMLContent} from '../components/Content'
-import ArticleTemplate from '../components/ArticleTemplate'
+import { graphql } from 'gatsby'
+import { HTMLContent } from '../components/Content'
+import WorkTemplate from '../components/WorkTemplate'
 import SE0 from '../components/SEO'
-import Share from '../components/Share'
-import Disqus from '../components/Disqus'
 import Layout from '../components/Layout'
 
-const ArticlePage = ({data}) => {
-  const {markdownRemark: post} = data
+const WorkPage = ({ data }) => {
+  const { markdownRemark: post } = data
   return (
     <Layout>
       <section className='section'>
@@ -24,7 +22,7 @@ const ArticlePage = ({data}) => {
         <div className='container content'>
           <div className='columns'>
             <div className='column is-10 is-offset-1'>
-              <ArticleTemplate
+              <WorkTemplate
                 content={post.html}
                 contentComponent={HTMLContent}
                 cover={post.frontmatter.cover}
@@ -32,16 +30,6 @@ const ArticlePage = ({data}) => {
                 meta_desc={post.frontmatter.meta_description}
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}
-              />
-              <Share
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
-                excerpt={post.frontmatter.meta_description}
-              />
-              <hr />
-              <Disqus
-                title={post.frontmatter.title}
-                slug={post.fields.slug}
               />
             </div>
           </div>
@@ -51,16 +39,16 @@ const ArticlePage = ({data}) => {
   )
 }
 
-ArticlePage.propTypes = {
+WorkPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default ArticlePage
+export default WorkPage
 
 export const pageQuery = graphql`
-  query ArticleByID($id: String!) {
+  query WorkByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html

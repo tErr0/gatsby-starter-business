@@ -17,8 +17,33 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.siteTitle,
+        short_name: config.siteTitleAlt,
+        start_url: '/index.html',
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: 'standalone',
+        icons: [
+          {
+            src: `/icons/icon-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `/icons/icon-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -44,8 +69,6 @@ module.exports = {
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -69,14 +92,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
-        htmlTitle: `Gatsby Starter Business Content Manager`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: config.themeColor,
@@ -88,29 +103,6 @@ module.exports = {
       options: {
         id: config.googleTagManagerID,
         includeInDevelopment: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: config.siteTitle,
-        short_name: config.siteTitleAlt,
-        start_url: '/index.html',
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
-        display: 'standalone',
-        icons: [
-          {
-            src: `/icons/icon-192x192.png`,
-            sizes: `192x192`,
-            type: `image/png`,
-          },
-          {
-            src: `/icons/icon-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
-        ],
       },
     },
     `gatsby-plugin-offline`,
@@ -146,7 +138,7 @@ module.exports = {
               const rssMetadata = ctx.query.site.siteMetadata.rssMetadata
               return ctx.query.allMarkdownRemark.edges
                 .filter(
-                  edge => edge.node.frontmatter.templateKey === 'article-page'
+                  edge => edge.node.frontmatter.templateKey === 'work-page'
                 )
                 .map(edge => ({
                   categories: edge.node.frontmatter.tags,
@@ -156,7 +148,7 @@ module.exports = {
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
                   guid: rssMetadata.site_url + edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 }))
             },
             query: `
@@ -184,6 +176,7 @@ module.exports = {
                     }
                   `,
             output: config.siteRss,
+            title: config.siteTitle,
           },
         ],
       },
@@ -205,5 +198,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        enableIdentityWidget: true,
+        htmlTitle: `Gatsby Starter Business Content Manager`,
+      },
+    },
   ],
 }

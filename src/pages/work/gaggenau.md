@@ -1,22 +1,18 @@
 ---
-templateKey: article-page
-title: Lorem Ipsum Dolor Situm
-slug: lorem-ipsum-dolor-situm
+templateKey: work-page
+title: Gaggenau
+slug: gaggenau
 date: 2018-03-29T03:55:49.370Z
-meta_title: Lorem Ipsum Dolor Situm
+cover: /img/products-grid3.jpg
+meta_title: Gaggenau
 meta_description: >-
   Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
   ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
   venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
   consectetur purus sit amet fermentum.
-cover: /img/products-grid3.jpg
-sections:
-  - image: /img/coffee.png
-    text: Some text on the right
-    type: imageLeftTextRight
-  - image: /img/killing-eve.png
-    text: Some text on the left
-    type: textLeftImageRight
+tags:
+  - lorem
+  - ipsum
 ---
 
 Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.

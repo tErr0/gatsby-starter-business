@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ArticleTemplate from '../../components/ArticleTemplate'
+import WorkTemplate from '../../components/WorkTemplate'
 
-const ArticlePreview = ({entry, widgetFor}) => {
+const WorkPreview = ({ entry, widgetFor }) => {
   return (
     <div className='container content'>
       <div className='columns'>
-        <div className='column is-10 is-offset-1'>    
-          <ArticleTemplate
+        <div className='column is-10 is-offset-1'>
+          <WorkTemplate
             content={widgetFor('body')}
             cover={entry.getIn(['data', 'cover'])}
             meta_title={entry.getIn(['data', 'meta_title'])}
@@ -21,11 +21,11 @@ const ArticlePreview = ({entry, widgetFor}) => {
   )
 }
 
-ArticlePreview.propTypes = {
+WorkPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
   widgetFor: PropTypes.func,
 }
 
-export default ArticlePreview
+export default WorkPreview
