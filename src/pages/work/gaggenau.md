@@ -3,8 +3,7 @@ templateKey: work-page
 title: Gaggenau
 slug: gaggenau
 date: 2018-03-29T03:55:49.370Z
-cover: >-
-  https://res.cloudinary.com/limecreative/image/upload/v1583776095/cover_gaggenau.jpg
+cover: ''
 tags:
   - lorem
   - ipsum
