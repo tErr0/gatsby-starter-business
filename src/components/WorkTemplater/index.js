@@ -32,7 +32,7 @@ const WorkTemplate = ({
             : null}
         </ul>
       </div>
-      <hr />
+      <hr /> 
     </div>
   )
 }
