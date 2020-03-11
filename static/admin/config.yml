@@ -2,9 +2,18 @@ backend:
   name: git-gateway
   branch: master
 
+# when using the default proxy server port
+# local_backend: true
+
 publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img
+
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: limecreative
+    api_key: 548158746697449
 
 collections:
   - name: "pages"
@@ -50,13 +59,13 @@ collections:
           - {label: Subtitle, name: subtitle, widget: string}
           - {label: "Meta Title", name: "meta_title", widget: "string"}
           - {label: "Meta Description", name: "meta_description", widget: "text"}
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "work"
+    label: "Work"
+    folder: "src/pages/work"
     create: true
     slug: "{{slug}}"
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "article-page"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "work-page"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Slug", name: "slug", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
